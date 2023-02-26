@@ -15,37 +15,37 @@ wstring to_wstring(const string& s)
 }
 int main()
 {
-	//ÌáÊ¾ĞÅÏ¢
-	cout << "ÇëÈ·±£\"zx.txt\"ÔÚµ±Ç°ÎÄ¼ş¼ĞÄÚÔÙ¼ÌĞø!\n";
-	cout << "×¢Òâ\"zx.txt\"ÄÚ²»ÄÜÓĞ¶àÓàµÄ¿Õ¸ñ,»»ĞĞ,×¢ÊÍµÈ!\n";
+	//æç¤ºä¿¡æ¯
+	cout << "è¯·ç¡®ä¿\"zx.txt\"åœ¨å½“å‰æ–‡ä»¶å¤¹å†…å†ç»§ç»­!\n";
+	cout << "æ³¨æ„\"zx.txt\"å†…ä¸èƒ½æœ‰å¤šä½™çš„ç©ºæ ¼,æ¢è¡Œ,æ³¨é‡Šç­‰!\n";
 	system("pause");
-	ifstream in;//´´½¨¶ÁÈ¡ĞèÒªµÄÀà
-	in.open("zx.txt");//´ò¿ª¶ÁÈ¡ÎÄ¼ş
-	if (!in.is_open())//¼ì²âzx.txtÊÇ·ñ´ò¿ª
+	ifstream in;//åˆ›å»ºè¯»å–éœ€è¦çš„ç±»
+	in.open("zx.txt");//æ‰“å¼€è¯»å–æ–‡ä»¶
+	if (!in.is_open())//æ£€æµ‹zx.txtæ˜¯å¦æ‰“å¼€
 	{
-		cout << "\"zx.txt\"Ã»ÓĞ´ò¿ª!\n¼´½«ÍË³ö³ÌĞò!\n";
+		cout << "\"zx.txt\"æ²¡æœ‰æ‰“å¼€!\nå³å°†é€€å‡ºç¨‹åº!\n";
 		system("pause");
 		exit(-1);
 	}
-	//¿ªÊ¼´¦ÀíÎÄ±¾
-	vector<string> zx;//Ê¹ÓÃvectorÈİÆ÷,ÎŞĞèµ£ĞÄÊ¹ÓÃÊı×é¹Ì¶¨³¤¶Èµ¼ÖÂµÄ»º³åÇøÒç³ö
-	string temp;//ÁÙÊ±¶ÁÈ¡µÄ×Ö·û´®,±£´æµ½vectorÈİÆ÷Àï
-	int i = 0;//±£´æ¶ÁÈ¡µÄ×ÜĞĞÊı
+	//å¼€å§‹å¤„ç†æ–‡æœ¬
+	vector<string> zx;//ä½¿ç”¨vectorå®¹å™¨,æ— éœ€æ‹…å¿ƒä½¿ç”¨æ•°ç»„å›ºå®šé•¿åº¦å¯¼è‡´çš„ç¼“å†²åŒºæº¢å‡º
+	string temp;//ä¸´æ—¶è¯»å–çš„å­—ç¬¦ä¸²,ä¿å­˜åˆ°vectorå®¹å™¨é‡Œ
+	int i = 0;//ä¿å­˜è¯»å–çš„æ€»è¡Œæ•°
 	while (!in.eof())
 	{
-		getline(in, temp);//¶ÁÈ¡Ã¿ĞĞµÄ×Ö·û´®È»ºó±£´æÔÚÁÙÊ±×Ö·û´®Àï
-		zx.push_back(temp);//ÁÙÊ±×Ö·û´®ÔÙ·ÅÈëvectorÈİÆ÷ÖĞ
-		++i;//¶ÁÈ¡Ò»ĞĞºó+1
+		getline(in, temp);//è¯»å–æ¯è¡Œçš„å­—ç¬¦ä¸²ç„¶åä¿å­˜åœ¨ä¸´æ—¶å­—ç¬¦ä¸²é‡Œ
+		zx.push_back(temp);//ä¸´æ—¶å­—ç¬¦ä¸²å†æ”¾å…¥vectorå®¹å™¨ä¸­
+		++i;//è¯»å–ä¸€è¡Œå+1
 	}
-	in.close();//¹Ø±Õ¶ÁÈ¡ÎÄ¼ş
-	//Êä³ö´¦ÀíºóµÄÎÄ±¾
+	in.close();//å…³é—­è¯»å–æ–‡ä»¶
+	//è¾“å‡ºå¤„ç†åçš„æ–‡æœ¬
 	if (i >= 50)
 	{
 		cout << "alias *Crosshair-1 \"echo *Crosshair-1;apply_crosshair_code " + zx[0] + ";alias *Crosshair-next *Crosshair-2" + ";alias *Crosshair-last *Crosshair-" + to_string(i) + "\"\n";
 		cout << "alias *Crosshair-2 \"echo *Crosshair-2;apply_crosshair_code " + zx[1] + ";alias *Crosshair-next *Crosshair-3" + ";alias *Crosshair-last *Crosshair-1\"\n";
 		cout << "alias *Crosshair-3 \"echo *Crosshair-3;apply_crosshair_code " + zx[2] + ";alias *Crosshair-next *Crosshair-4" + ";alias *Crosshair-last *Crosshair-2\"\n";
 		cout << "...\n";
-		cout << "ÒòÎªÌ«³¤ÒÑÊ¡ÂÔ" + to_string(i - 6) + "ĞĞÊä³ö!!!\n";
+		cout << "å› ä¸ºå¤ªé•¿å·²çœç•¥" + to_string(i - 6) + "è¡Œè¾“å‡º!!!\n";
 		cout << "...\n";
 		cout << "alias *Crosshair-" + to_string(i - 2) + " \"echo *Crosshair-" + to_string(i - 2) + ";apply_crosshair_code " + zx[i - 3] + ";alias *Crosshair-next *Crosshair-" + to_string(i - 1) + ";alias *Crosshair-last *Crosshair-" + to_string(i - 3) + "\"\n";
 		cout << "alias *Crosshair-" + to_string(i - 1) + " \"echo *Crosshair-" + to_string(i - 1) + ";apply_crosshair_code " + zx[i - 2] + ";alias *Crosshair-next *Crosshair-" + to_string(i) + ";alias *Crosshair-last *Crosshair-" + to_string(i - 2) + "\"\n";
@@ -63,7 +63,7 @@ int main()
 	wofstream out;
 	out.open("crosshair.cfg");
 	out.imbue(std::locale(out.getloc(), new std::codecvt_utf8<wchar_t, 0x10ffff, std::little_endian>));
-	out << to_wstring("echo \"============================\"\necho \"=|Scmd:\\ÇĞ»»×¼ĞÇ\"\necho \"============================\"\necho \"=1.ÇĞ»»ÎªÉÏÒ»¸ö×¼ĞÇ\"\necho \"=2.ÇĞ»»ÎªÏÂÒ»¸ö×¼ĞÇ\"\necho \"=3.ÁÙÊ±±£´æµ±Ç°µÄcfg\"\necho \"=4.¼ÓÔØÁÙÊ±±£´æµÄcfg\"\necho \"============================\"\necho \"=00.Ë¢ĞÂ\"\necho \"============================\"\nalias 1 *Crosshair-next\nalias 2 *Crosshair-last\nalias 3 \"host_writeconfig Scmd_crosshair_temp\"\nalias 4 \"exec Scmd_crosshair_temp\"\nalias 00 \"exec crosshair\"\n");
+	out << to_wstring("echo \"============================\"\necho \"=|Scmd:\\åˆ‡æ¢å‡†æ˜Ÿ\"\necho \"============================\"\necho \"=1.åˆ‡æ¢ä¸ºä¸Šä¸€ä¸ªå‡†æ˜Ÿ\"\necho \"=2.åˆ‡æ¢ä¸ºä¸‹ä¸€ä¸ªå‡†æ˜Ÿ\"\necho \"=3.ä¸´æ—¶ä¿å­˜å½“å‰çš„cfg\"\necho \"=4.åŠ è½½ä¸´æ—¶ä¿å­˜çš„cfg\"\necho \"============================\"\necho \"=00.åˆ·æ–°\"\necho \"============================\"\nalias 1 *Crosshair-last\nalias 2 *Crosshair-next\nalias 3 \"host_writeconfig Scmd_crosshair_temp\"\nalias 4 \"exec Scmd_crosshair_temp\"\nalias 00 \"exec crosshair\"\n");
 	out << to_wstring("alias *Crosshair-next *Crosshair-2;alias *Crosshair-last *Crosshair-" + to_string(i) + "\"\n");
 	out << to_wstring("alias *Crosshair-1 \"echo *Crosshair-1;apply_crosshair_code " + zx[0] + ";alias *Crosshair-next *Crosshair-2" + ";alias *Crosshair-last *Crosshair-" + to_string(i) + "\"\n");
 	for (size_t j = 1, k = i; j < i - 1; j++)
@@ -72,8 +72,8 @@ int main()
 	}
 	out << to_wstring("alias *Crosshair-" + to_string(i) + " \"echo *Crosshair-" + to_string(i) + ";apply_crosshair_code " + zx[i - 1] + ";alias *Crosshair-next *Crosshair-1" + ";alias *Crosshair-last *Crosshair-" + to_string(i - 1) + "\"");
 	out.close();
-	cout << "\nÒÑÍê³É!\n";
-	//½áÊø
+	cout << "\nå·²å®Œæˆ!\n";
+	//ç»“æŸ
 	system("pause");
 	return 0;
 }
